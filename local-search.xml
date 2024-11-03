@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>CSP-S2024游记</title>
+    <link href="/2024/11/03/CSP-S2024%E6%B8%B8%E8%AE%B0/"/>
+    <url>/2024/11/03/CSP-S2024%E6%B8%B8%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="唐B游记"><a href="#唐B游记" class="headerlink" title="唐B游记"></a>唐B游记</h2><h3 id="DAY-0"><a href="#DAY-0" class="headerlink" title="DAY 0"></a>DAY 0</h3><p>早上起来发现脚跑操跑破了 … 给我疼了一阵。rp –。<br>上午不想上文化课，政史地什么的上不了一点，直接随便找了一套题以模拟赛为由逃避。</p><p>下午起床后先来到了机房集合，中间教练说我就进省队的潜质，理由是我把我珍藏的 fufu 拿给她看了。做了两小时车后到了酒店。说好的独栋大别墅变成了普通小旅店，悲。</p><p>晚上照常去 SWUT 试机，发现我的渣机跑 $1e7$ 跑了 $0.7$ 秒。给孩子干傻了。晚上$21:00$回到酒店吃饭，然后玩到 $2$ 点睡觉。</p><h3 id="DAY-1"><a href="#DAY-1" class="headerlink" title="DAY 1"></a>DAY 1</h3><p>早上 $6:30$ 被我的好室友叫醒了，随后和 $dalao$ 们一起去吃了早饭，回来刷了会题，推碧蓝航线的活动推了 $3h$ 。然后又该和 $dalao$ 们一起去吃饭了。中午去 SWUT 吃的，和夏令营一个地方，but 吃的东西一个天上一个地下。路上觉得可能会考缩点，就复习了一下（考个鸡毛啊）</p><p>下午 $1:50$ 准备进考场。$2:15$ 到达考场。</p><p>下午 $2:30$ 给了pdf 密码</p><p>T1 感觉和去年的半斤八两，以后 S 的 T1 都是橙题？<br>花了 10min 解决了 T1 去看 T2，发现 T2题意一坨，直接跳了，看 T3。 （ 下次再也不敢不看题就跳了 QWQ） T3一眼 dp , 先想了一个 $n^2$ 的状态，发现没法转移，于是又换到了一维状态，开始怼转移方程。考场上先想的 $n^2$ 的转移，从 $1 ～ i - 1$ 枚举 $j$ ，计算和 $i$ 颜色一样的最近的数为 $j$ 时的最大 $\sum\limits_{k&#x3D;1}^iC_k$ 。 然后发现当 $j &#x3D;&#x3D; i - 2$ 时转移时错误的。然后就慌了，又耗费了 1h 来尝试解决，但没解决出来。（赛时一点不会，赛后重拳出击，这个问题赛后稍微一想就解决了，悲）</p><p>$17:30$ 此时还是 100 + 0 + 20 + 0，然后去想 T2 了。 T2 看完题目发现秒了，但为了稳一点先打的部分分。 打完三个特殊性质用了 20min，然后觉得 T3 有就，就边想 T3 边打 T2，然后将三者有机结合的时候出现了问题，调到结束也没调出来。</p><p>T4？A 了 T1 后看了一眼觉得十分不可做，逃避了。</p><p>不挂分应该是 100 + 60 + 20 + 0 &#x3D;&#x3D; 180 ，喜题你谷 S 最低分。</p><h3 id="10-27"><a href="#10-27" class="headerlink" title="10.27"></a>10.27</h3><p>玩了一天</p><h3 id="10-28"><a href="#10-28" class="headerlink" title="10.28"></a>10.28</h3><p>花 10min 按照考场思路重构了 T2 ， 一发 A。<br>花 15min 思考了一下 T3 ，出了 50 的暴力，然后花了 5min 优化了一下，一发 A。</p><h2 id="考后总结"><a href="#考后总结" class="headerlink" title="考后总结"></a>考后总结</h2><p>如果老老实实按顺序做，应该能保底有 100 + 100 + 50 + 0 &#x3D;&#x3D; 250，或者300 + 也不是不可能。下次再也不不看题就跳了，悲。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>游记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>CF1656H-题解</title>
+    <link href="/2024/11/03/CF1656H-%E9%A2%98%E8%A7%A3/"/>
+    <url>/2024/11/03/CF1656H-%E9%A2%98%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF1656H">CF1656H , Equal LCM Subsets</a></p><hr><p>因为作者是个非常菜的蒟蒻, 且第一次写题解, 所以有错误欢迎指出。</p><hr><p>考虑什么时候两个集合元素的 $\operatorname{lcm}$ 会相等。</p><p>对于A集合中的每一个元素 $a_i$, 如果它可以对集合的 $\operatorname{lcm}$ 产生贡献, 那么将 $a_i$ 质因数分解为  $\prod\limits_{i&#x3D;1}^nw_j^{p_j}$ 的形式后, 它至少有一个质因数的指数是整个集合所有元素中最高的。</p><p>也就是说, 假设 $w_1$ 这个质因子对集合的 lcm 产生了贡献,  那么对于 $ ∀ x \in A, \ \ x ≠ a_i, $ 将 $x$ 质因数分解后, $w_1$ 这一个质因子的指数 $ \le p_1$ 。</p><hr><p>定义 $f(x)$ 为 A 集合中所有元素质因数分解后, $x$ 这个质数的最高指数。</p><blockquote></blockquote><p>定义 $g(x) $ 为 B 集合中的集合中所有元素质因数分解后, $x$ 这个质数的最高指数。</p><p>如果两个集合所有元素的 $\operatorname{lcm}$ 不相等, 当且仅当 $ ∃t$, $t$ 是质数, 使得 $ f(t) ≠ g(t) $ 。</p><h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><p>最简单粗暴的思路, 判断A, B两个集合的 $\operatorname{lcm}$ 是否相等,  如果不相等,  依次判断A, B集合 $\operatorname{lcm}$ 质因子分解后的每个质因子, 如果A, B集合的 $\operatorname{lcm}$ 在这个质因子上面的指数不相等, 将指数高的那个集合中删去能对这个质因子产生贡献的数,  然后一直持续这个过程, 直到两个集合的 $\operatorname{lcm}$ 相等。</p><p>But  , 先不论时间复杂度。</p><blockquote><p> $ 1 \le a_i \le 4 \ \times \ 10 ^ {36} \ \ ,\ \   1 \le b_i \le 4 \ \times \ 10 ^ {36}  $</p></blockquote><p>在这个数据下, 怎么存下来 $\operatorname{lcm}$ 是个问题 (寄 。</p><h3 id="换思路"><a href="#换思路" class="headerlink" title="换思路"></a>换思路</h3><p>不能存 $\operatorname{lcm}$ , 那怎么做? </p><p>考虑一个问题, 我们为什么要存下来 $\operatorname{lcm}$ 呢? 为了判断两个集合所有的 $\operatorname{lcm}$ 是否相等, 及为了方便之后的修改操作。 有没有什么方法可以不存 $\operatorname{lcm}$ 就能够判断两个集合的 $\operatorname{lcm}$ 是否相等呢?</p><p>回到最初, 两个集合的 $\operatorname{lcm}$ 为何不相等, 因为 $ ∃t$ , $t$ 是质数 , 使得 $ f(t) ≠ g(t) $ 。 那么找到 $t $ , 再把对 $t$ 产生贡献的所有数删除, 不就完成上述操作了 ? !</p><h3 id="找-t"><a href="#找-t" class="headerlink" title="找 $t$"></a>找 $t$</h3><p>(先以 A 集合为示范,  B 集合同理)</p><p>对于 A 集合中的每一个数, 只有两种情况。</p><blockquote><ol><li><p>可以被 B 集合的   $\operatorname{lcm}$ 整除。</p></li><li><p>不可以被 B 集合的 $\operatorname{lcm}$ 整除。</p></li></ol></blockquote><p>如果 A 集合中的某个元素 $x$ 可以被 B 集合的 $\operatorname{lcm}$ 整除, 那么就不用管它。</p><blockquote><p>如果 $x$ 对 A 集合的 $\operatorname{lcm}$ 产生了贡献, 那么 A 集合的 $\operatorname{lcm}$ 质因数分解后在 $x$ 的所有贡献的质因子的指数都小于等于 B 集合的 $\operatorname{lcm}$ 质因数分解后在这一项上的指数 (豪氏)。</p><p>也就是说, 对于 $x$ 能产生贡献的每一个 $w_i$, 令 A 集合的 $\operatorname{lcm}$ 质因数分解后在 $w_i$ 这一项上的指数为 $k1$, B 集合的指数为 $k2$ , $ k1 \le k2$ 。</p><p>既然  $x$ 能在 $w_i$ 上产生贡献, 那么从 A 集合去掉 $x$ 后, $w_i$ 的指数不会上升, 依然 $\le k2$ 。</p></blockquote><blockquote><p>如果 $x$ 不会产生贡献, 那么无论是否存在, 都与 A 集合的 $\operatorname{lcm}$ 无关。</p></blockquote><p>如果不能被整除呢 ?  很显然不符合题目要求了, 直接删掉。</p><h3 id="如何判断是否能被整除"><a href="#如何判断是否能被整除" class="headerlink" title="如何判断是否能被整除"></a>如何判断是否能被整除</h3><p>应该是整题最难的点了。</p><p>对于一个数 $x$ , 如果它可以被一个集合所有元素的  $\operatorname{lcm}$ 整除,  那么对于将它质因数分解后的每一项 $w_i ^ {p_i}$ , 都能在集合中找到一个元素, 使得这个元素可以写成 $w_i ^ q \times m$ 的形式, 其中 $m ≠ 0 ,\ \  q \ge p_i$ 。</p><p>对于这个集合中的某一元素 , 暂且设为 $t$ ,$\gcd(x, t)$ 就是 $t$ 在集合的 $\operatorname{lcm}$ 中, 所贡献的, 能让  $\operatorname{lcm}$ 整除 $x$那一部分 。$x &#x2F; \gcd(x, t)$ 就是 $t$ 在集合的 $\operatorname{lcm}$ 中不能对 $x$ 做出贡献的那一部分。</p><p>对于 A 集合中的每一个元素 $a_i$, 我们对与 B 集合的每一个数 $b_j$, 都求出 $a_i &#x2F; \gcd(a_i, b_j) $ 如果 $a_i$ 能被 B 集合的  $\operatorname{lcm}$ 整除, 那么 $a_i$ 质因数分解后的每一个部分都可以在 B 集合中的元素中找到</p><p>$$ \gcd\limits_{j&#x3D;1}^n(a_i, b_j) &#x3D; 1 $$ 。</p><blockquote><p>如果 $\gcd\limits_{j&#x3D;1}^n(a_i, b_j) ≠ 1$ , 那么 $x$ 质因数分解后必定有一部分无法在 B 集合中的元素中找到。 即, 在 B 集合所有元素中, 质因数分解后。与 $x$ 有共同质因子的数$\ \ $的质因子$\ \ $的指数$\ \ $的最大值, 小于 $x$ 质因数分解后$\ \ $这一质因子$\ \ $的指数。</p></blockquote><p>模拟这一过程即可。</p><p><del>完结撒花。</del></p><h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p><a href="https://codeforces.com/contest/1656/submission/285576191">然后您在第5个点T了。</a></p><p>考虑优化</p><p>单点修改 , 区间查询 ,  这是啥 ? 线段树 ? !  您飞快的敲了个线段树上去 , 维护了 $\operatorname{gcd}$ , 然后轻松的 A 掉了这道黑题。</p><p><a href="https://www.luogu.com.cn/paste/btxsbf0c">$Code$</a></p><p>完结撒花~</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>题解</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Smikunx&#39;s first blog</title>
     <link href="/2024/11/02/Smikunx-s-first-blog/"/>
     <url>/2024/11/02/Smikunx-s-first-blog/</url>

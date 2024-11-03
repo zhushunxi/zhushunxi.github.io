@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.luogu.com.cn/upload/image_hosting/jiu8t9vu.png">
+  <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/jiu8t9vu.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CF1656H , Equal LCM Subsets  因为作者是个非常菜的蒟蒻, 且第一次写题解, 所以有错误欢迎指出。  考虑什么时候两个集合元素的 $\operatorname{lcm}$ 会相等。 对于A集合中的每一个元素 $a_i$, 如果它可以对集合的 $\operatorname{lcm}$ 产生贡献, 那么将 $a_i$ 质因数分解为  $\prod\limits_{i&amp;#x3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF1656H-题解">
+<meta property="og:url" content="http://example.com/2024/11/03/CF1656H-%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CF1656H , Equal LCM Subsets  因为作者是个非常菜的蒟蒻, 且第一次写题解, 所以有错误欢迎指出。  考虑什么时候两个集合元素的 $\operatorname{lcm}$ 会相等。 对于A集合中的每一个元素 $a_i$, 如果它可以对集合的 $\operatorname{lcm}$ 产生贡献, 那么将 $a_i$ 质因数分解为  $\prod\limits_{i&amp;#x3D">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-03T06:02:27.000Z">
+<meta property="article:modified_time" content="2024-11-03T06:04:13.206Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>CF1656H-题解 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>档案</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>类别</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Toutu.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CF1656H-题解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-03 14:02" pubdate>
+          November 3, 2024 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CF1656H-题解</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1656H">CF1656H , Equal LCM Subsets</a></p>
+<hr>
+<p>因为作者是个非常菜的蒟蒻, 且第一次写题解, 所以有错误欢迎指出。</p>
+<hr>
+<p>考虑什么时候两个集合元素的 $\operatorname{lcm}$ 会相等。</p>
+<p>对于A集合中的每一个元素 $a_i$, 如果它可以对集合的 $\operatorname{lcm}$ 产生贡献, 那么将 $a_i$ 质因数分解为  $\prod\limits_{i&#x3D;1}^nw_j^{p_j}$ 的形式后, 它至少有一个质因数的指数是整个集合所有元素中最高的。</p>
+<p>也就是说, 假设 $w_1$ 这个质因子对集合的 lcm 产生了贡献,  那么对于 $ ∀ x \in A, \ \ x ≠ a_i, $ 将 $x$ 质因数分解后, $w_1$ 这一个质因子的指数 $ \le p_1$ 。</p>
+<hr>
+<p>定义 $f(x)$ 为 A 集合中所有元素质因数分解后, $x$ 这个质数的最高指数。</p>
+<blockquote>
+</blockquote>
+<p>定义 $g(x) $ 为 B 集合中的集合中所有元素质因数分解后, $x$ 这个质数的最高指数。</p>
+<p>如果两个集合所有元素的 $\operatorname{lcm}$ 不相等, 当且仅当 $ ∃t$, $t$ 是质数, 使得 $ f(t) ≠ g(t) $ 。</p>
+<h3 id="暴力"><a href="#暴力" class="headerlink" title="暴力"></a>暴力</h3><p>最简单粗暴的思路, 判断A, B两个集合的 $\operatorname{lcm}$ 是否相等,  如果不相等,  依次判断A, B集合 $\operatorname{lcm}$ 质因子分解后的每个质因子, 如果A, B集合的 $\operatorname{lcm}$ 在这个质因子上面的指数不相等, 将指数高的那个集合中删去能对这个质因子产生贡献的数,  然后一直持续这个过程, 直到两个集合的 $\operatorname{lcm}$ 相等。</p>
+<p>But  , 先不论时间复杂度。</p>
+<blockquote>
+<p> $ 1 \le a_i \le 4 \ \times \ 10 ^ {36} \ \ ,\ \   1 \le b_i \le 4 \ \times \ 10 ^ {36}  $</p>
+</blockquote>
+<p>在这个数据下, 怎么存下来 $\operatorname{lcm}$ 是个问题 (寄 。</p>
+<h3 id="换思路"><a href="#换思路" class="headerlink" title="换思路"></a>换思路</h3><p>不能存 $\operatorname{lcm}$ , 那怎么做? </p>
+<p>考虑一个问题, 我们为什么要存下来 $\operatorname{lcm}$ 呢? 为了判断两个集合所有的 $\operatorname{lcm}$ 是否相等, 及为了方便之后的修改操作。 有没有什么方法可以不存 $\operatorname{lcm}$ 就能够判断两个集合的 $\operatorname{lcm}$ 是否相等呢?</p>
+<p>回到最初, 两个集合的 $\operatorname{lcm}$ 为何不相等, 因为 $ ∃t$ , $t$ 是质数 , 使得 $ f(t) ≠ g(t) $ 。 那么找到 $t $ , 再把对 $t$ 产生贡献的所有数删除, 不就完成上述操作了 ? !</p>
+<h3 id="找-t"><a href="#找-t" class="headerlink" title="找 $t$"></a>找 $t$</h3><p>(先以 A 集合为示范,  B 集合同理)</p>
+<p>对于 A 集合中的每一个数, 只有两种情况。</p>
+<blockquote>
+<ol>
+<li><p>可以被 B 集合的   $\operatorname{lcm}$ 整除。</p>
+</li>
+<li><p>不可以被 B 集合的 $\operatorname{lcm}$ 整除。</p>
+</li>
+</ol>
+</blockquote>
+<p>如果 A 集合中的某个元素 $x$ 可以被 B 集合的 $\operatorname{lcm}$ 整除, 那么就不用管它。</p>
+<blockquote>
+<p>如果 $x$ 对 A 集合的 $\operatorname{lcm}$ 产生了贡献, 那么 A 集合的 $\operatorname{lcm}$ 质因数分解后在 $x$ 的所有贡献的质因子的指数都小于等于 B 集合的 $\operatorname{lcm}$ 质因数分解后在这一项上的指数 (豪氏)。</p>
+<p>也就是说, 对于 $x$ 能产生贡献的每一个 $w_i$, 令 A 集合的 $\operatorname{lcm}$ 质因数分解后在 $w_i$ 这一项上的指数为 $k1$, B 集合的指数为 $k2$ , $ k1 \le k2$ 。</p>
+<p>既然  $x$ 能在 $w_i$ 上产生贡献, 那么从 A 集合去掉 $x$ 后, $w_i$ 的指数不会上升, 依然 $\le k2$ 。</p>
+</blockquote>
+<blockquote>
+<p>如果 $x$ 不会产生贡献, 那么无论是否存在, 都与 A 集合的 $\operatorname{lcm}$ 无关。</p>
+</blockquote>
+<p>如果不能被整除呢 ?  很显然不符合题目要求了, 直接删掉。</p>
+<h3 id="如何判断是否能被整除"><a href="#如何判断是否能被整除" class="headerlink" title="如何判断是否能被整除"></a>如何判断是否能被整除</h3><p>应该是整题最难的点了。</p>
+<p>对于一个数 $x$ , 如果它可以被一个集合所有元素的  $\operatorname{lcm}$ 整除,  那么对于将它质因数分解后的每一项 $w_i ^ {p_i}$ , 都能在集合中找到一个元素, 使得这个元素可以写成 $w_i ^ q \times m$ 的形式, 其中 $m ≠ 0 ,\ \  q \ge p_i$ 。</p>
+<p>对于这个集合中的某一元素 , 暂且设为 $t$ ,$\gcd(x, t)$ 就是 $t$ 在集合的 $\operatorname{lcm}$ 中, 所贡献的, 能让  $\operatorname{lcm}$ 整除 $x$那一部分 。$x &#x2F; \gcd(x, t)$ 就是 $t$ 在集合的 $\operatorname{lcm}$ 中不能对 $x$ 做出贡献的那一部分。</p>
+<p>对于 A 集合中的每一个元素 $a_i$, 我们对与 B 集合的每一个数 $b_j$, 都求出 $a_i &#x2F; \gcd(a_i, b_j) $ 如果 $a_i$ 能被 B 集合的  $\operatorname{lcm}$ 整除, 那么 $a_i$ 质因数分解后的每一个部分都可以在 B 集合中的元素中找到</p>
+<p>$$ \gcd\limits_{j&#x3D;1}^n(a_i, b_j) &#x3D; 1 $$ 。</p>
+<blockquote>
+<p>如果 $\gcd\limits_{j&#x3D;1}^n(a_i, b_j) ≠ 1$ , 那么 $x$ 质因数分解后必定有一部分无法在 B 集合中的元素中找到。 即, 在 B 集合所有元素中, 质因数分解后。与 $x$ 有共同质因子的数$\ \ $的质因子$\ \ $的指数$\ \ $的最大值, 小于 $x$ 质因数分解后$\ \ $这一质因子$\ \ $的指数。</p>
+</blockquote>
+<p>模拟这一过程即可。</p>
+<p><del>完结撒花。</del></p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1656/submission/285576191">然后您在第5个点T了。</a></p>
+<p>考虑优化</p>
+<p>单点修改 , 区间查询 ,  这是啥 ? 线段树 ? !  您飞快的敲了个线段树上去 , 维护了 $\operatorname{gcd}$ , 然后轻松的 A 掉了这道黑题。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/paste/btxsbf0c">$Code$</a></p>
+<p>完结撒花~</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CF1656H-题解</div>
+      <div>http://example.com/2024/11/03/CF1656H-题解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 3, 2024</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/03/CSP-S2024%E6%B8%B8%E8%AE%B0/" title="CSP-S2024游记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CSP-S2024游记</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/02/Smikunx-s-first-blog/" title="Smikunx&#39;s first blog">
+                        <span class="hidden-mobile">Smikunx&#39;s first blog</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
