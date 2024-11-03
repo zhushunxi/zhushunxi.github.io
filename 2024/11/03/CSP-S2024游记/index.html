@@ -16,7 +16,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Smikunx">
   <meta name="keywords" content="">
   
     <meta name="description" content="唐B游记DAY 0早上起来发现脚跑操跑破了 … 给我疼了一阵。rp –。上午不想上文化课，政史地什么的上不了一点，直接随便找了一套题以模拟赛为由逃避。 下午起床后先来到了机房集合，中间教练说我就进省队的潜质，理由是我把我珍藏的 fufu 拿给她看了。做了两小时车后到了酒店。说好的独栋大别墅变成了普通小旅店，悲。 晚上照常去 SWUT 试机，发现我的渣机跑 $1e7$ 跑了 $0.7$ 秒。给孩子干">
@@ -27,7 +27,7 @@
 <meta property="og:description" content="唐B游记DAY 0早上起来发现脚跑操跑破了 … 给我疼了一阵。rp –。上午不想上文化课，政史地什么的上不了一点，直接随便找了一套题以模拟赛为由逃避。 下午起床后先来到了机房集合，中间教练说我就进省队的潜质，理由是我把我珍藏的 fufu 拿给她看了。做了两小时车后到了酒店。说好的独栋大别墅变成了普通小旅店，悲。 晚上照常去 SWUT 试机，发现我的渣机跑 $1e7$ 跑了 $0.7$ 秒。给孩子干">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-03T06:03:47.000Z">
-<meta property="article:modified_time" content="2024-11-03T06:04:11.527Z">
+<meta property="article:modified_time" content="2024-11-03T06:08:29.591Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary_large_image">
@@ -331,7 +331,7 @@
       
         <div class="license-meta-item">
           <div>Author</div>
-          <div>John Doe</div>
+          <div>Smikunx</div>
         </div>
       
       
@@ -431,6 +431,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -623,6 +629,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
