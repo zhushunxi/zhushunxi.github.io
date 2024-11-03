@@ -5,6 +5,9 @@ layout: about
 ---
 about:
   enable: true
+  banner_img: https://cdn.luogu.com.cn/upload/image_hosting/o9odmzpj.png
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
   avatar: /img/TX.jpg
   name: "Smikunx"
   intro: "菜比"
